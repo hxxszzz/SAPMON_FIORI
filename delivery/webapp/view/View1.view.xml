@@ -2,8 +2,9 @@
     controllerName="sapmon.fiori.delivery.controller.View1"
     xmlns:mvc="sap.ui.core.mvc" 
     displayBlock="true"
-	xmlns:l="sap.ui.layout"
-	xmlns:f="sap.ui.layout.form"
+	 xmlns:l="sap.ui.layout"
+	 xmlns:f="sap.ui.layout.form"
+    xmlns:core="sap.ui.core"
     xmlns="sap.m">
 	<Page id="page" title="{i18n>title}" >
 	<headerContent  >
@@ -13,7 +14,7 @@
       </headerContent>
     <IconTabBar 
         id="idIconTabBar"
-        select=".onFilterSelect"
+        select="onFilterSelect"
         class="sapUiResponsiveContentPadding">
         <items>
             <!-- <IconTabFilter 
@@ -81,10 +82,9 @@
 					<Column width="2rem">
 						<!-- <CheckBox ></CheckBox> -->
 					</Column>
-					<Column hAlign="Center"
-						width="5rem">
-						<Text text="상태" />
-					</Column>
+               <Column hAlign="Center" width="2rem">
+                  <Text text="상태" />
+               </Column>
 					<Column hAlign="Center"
 						width="7rem">
 						<Text text="배송상태" />
@@ -118,9 +118,12 @@
 				<items>
 					<ColumnListItem>
 						<cells>
-							<CheckBox selected="false"/>
-							<Text
-								text="{Status}" />
+							<CheckBox selected="false" />
+                     <HBox justifyContent="Center" alignItems="Center"  >
+                        <core:Icon
+                           src="{path: 'Dstatus', formatter: '.formatter.deliveryStatusIcon'}"
+                           color="{path: 'Dstatus', formatter: '.formatter.deliveryStatusColor'}" />
+                     </HBox>
 							<Text
 								text="{Dstatus}" />
 							<Text
