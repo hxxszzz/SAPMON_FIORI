@@ -1,0 +1,23 @@
+# yaml-language-server: $schema=https://sap.github.io/ui5-tooling/schema/ui5.yaml.json
+
+specVersion: "2.6"
+metadata:
+  name: sapmon.fiori.delivery
+type: application
+builder:
+  resources:
+    excludes:
+      - /test/**
+      - /localService/**
+  customTasks:
+    - name: deploy-to-abap
+      afterTask: generateCachebusterInfo
+      configuration:
+        target:
+          url: http://sapmento.mento.co.kr:8001/
+          client: "100"
+        app:
+          name: ZSM_FIORI_DELI
+          description: 피오리 배송 및 주문상세
+          package: ZP_SAPMON
+          transport: MTSK900061

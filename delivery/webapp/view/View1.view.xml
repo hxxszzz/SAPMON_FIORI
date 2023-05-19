@@ -1,0 +1,168 @@
+<mvc:View 
+    controllerName="sapmon.fiori.delivery.controller.View1"
+    xmlns:mvc="sap.ui.core.mvc" 
+    displayBlock="true"
+	xmlns:l="sap.ui.layout"
+	xmlns:f="sap.ui.layout.form"
+    xmlns="sap.m">
+	<Page id="page" title="{i18n>title}" >
+	<headerContent  >
+         <HBox>
+            <Image src="../image/logo.png"  width="250px" height="100px" />
+         </HBox>
+      </headerContent>
+    <IconTabBar 
+        id="idIconTabBar"
+        select=".onFilterSelect"
+        class="sapUiResponsiveContentPadding">
+        <items>
+            <!-- <IconTabFilter 
+            showAll="true"
+            count="{/ProductCollectionStats/Counts/Total}"
+            text="전체주문내역"
+            key="All"></IconTabFilter>
+            <IconTabSeparator /> -->
+         <IconTabFilter
+            icon="sap-icon://cart-full"
+            iconColor="Marker"
+            
+            text="전체주문내역"
+            key="all" />
+         <IconTabFilter
+            icon="sap-icon://cart-full"
+            iconColor="Negative"
+            count="{/ProductCollectionStats/Counts/Weight/Ok}"
+            text="배송전"
+            key="before" />
+         <IconTabFilter
+            icon="sap-icon://inventory"
+            iconColor="Default"
+            count="{/ProductCollectionStats/Counts/Weight/Heavy}"
+            text="배송중"
+            key="ing" />
+         <IconTabFilter
+            icon="sap-icon://supplier"
+            iconColor="Positive"
+            count="{/ProductCollectionStats/Counts/Weight/Overweight}"
+            text="배송완료"
+            key="complete" />
+            <IconTabFilter
+            icon="sap-icon://delete"
+            iconColor="Neutral"
+            count="{/ProductCollectionStats/Counts/Weight/Overweight}"
+            text="주문취소"
+            key="cancel" />
+
+        </items>
+		<content>
+
+            <Table
+               id="table"
+               inset="false"
+               showSeparators="Inner"
+               headerText="주문 내역"
+               items="{/deliviewSet}">
+            <headerToolbar >
+            <Toolbar>
+            <Title text="주문 내역"/>   
+            <ToolbarSpacer />         <!--주문취소 버튼 오른쪽 끝으로 밀어줌-->
+            <Button
+               type="Success"
+               text = "포인트 조회" 
+               press="onCancle"/>
+            <Button
+               type="Negative"
+               text = "주문취소" 
+               press="onCancle"/>
+            </Toolbar>
+            </headerToolbar>
+
+				<columns>
+					<Column width="2rem">
+						<!-- <CheckBox ></CheckBox> -->
+					</Column>
+					<Column hAlign="Center"
+						width="5rem">
+						<Text text="상태" />
+					</Column>
+					<Column hAlign="Center"
+						width="7rem">
+						<Text text="배송상태" />
+					</Column>
+					<Column hAlign="Center"
+						width="7rem">
+						<Text text="주문번호" />
+					</Column>
+					<Column hAlign="Center"
+						width="7rem">
+						<Text text="송장번호" />
+					</Column>
+					<Column hAlign="Center"
+						width="7rem">
+						<Text text="주문일자" />
+					</Column>		
+					<Column hAlign="Center"
+						width="7rem">
+						<Text text="배송일자" />
+					</Column>		
+					<Column hAlign="Center"
+						width="7rem">
+						<Text text="센터지역" />
+					</Column>	
+					<Column hAlign="Center"
+						width="12rem">
+						<Text text="고객주소" />
+					</Column>	
+
+				</columns>
+				<items>
+					<ColumnListItem>
+						<cells>
+							<CheckBox selected="false"/>
+							<Text
+								text="{Status}" />
+							<Text
+								text="{Dstatus}" />
+							<Text
+								text="{Onum}" />
+							<Text
+								text="{Ivnum}" />
+                            <Text text = "{path: 'Odate',
+                                           type: 'sap.ui.model.odata.type.Date',
+                                           formatOptions: {
+                                                pattern: 'yy년 MM월 dd일'
+                                           }}" />
+                            <Text text = "{path: 'Eddate',
+                                           type: 'sap.ui.model.odata.type.Date',
+                                           formatOptions: {
+                                                pattern: 'yy년 MM월 dd일'
+                                           }}" />
+							<Text
+								text="{Cenaddr}" />	
+							<Text
+								text="{Addrdetail}" />	
+							<!-- <ObjectNumber
+								number="{WeightMeasure}"
+								unit="{WeightUnit}"
+								state="{
+									parts: [
+										{path: 'WeightMeasure'},
+										{path: 'WeightUnit'}
+									],
+									formatter: '.formatter.weightState'
+								}" />
+							<ObjectNumber
+									number="{
+										parts:[{path:'Price'},{path:'CurrencyCode'}],
+										type: 'sap.ui.model.type.Currency',
+										formatOptions: {showMeasure: false}
+									}"
+									unit="{CurrencyCode}" /> -->
+						</cells>
+					</ColumnListItem>
+				</items>
+			</Table>
+        </content>
+        </IconTabBar>
+    </Page>
+</mvc:View>
