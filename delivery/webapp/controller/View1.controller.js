@@ -67,7 +67,7 @@ sap.ui.define([
                     if (sDstatus === "배송전") {
                         sColor = "Negative";
                     } else if (sDstatus === "배송중") {
-                        sColor = "Default";
+                        sColor = "default";
                     } else if (sDstatus === "배송완료") {
                         sColor = "Positive";
                     } else if (sDstatus === "결제취소완료") {

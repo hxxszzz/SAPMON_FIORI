@@ -82,35 +82,35 @@
 					<Column width="2rem">
 						<!-- <CheckBox ></CheckBox> -->
 					</Column>
-               <Column hAlign="Center" width="2rem">
+               <Column hAlign="Center" width="2rem" >
                   <Text text="상태" />
                </Column>
 					<Column hAlign="Center"
-						width="7rem">
+						width="7rem" >
 						<Text text="배송상태" />
 					</Column>
 					<Column hAlign="Center"
-						width="7rem">
+						width="7rem" >
 						<Text text="주문번호" />
 					</Column>
 					<Column hAlign="Center"
-						width="7rem">
+						width="7rem" >
 						<Text text="송장번호" />
 					</Column>
 					<Column hAlign="Center"
-						width="7rem">
+						width="7rem" >
 						<Text text="주문일자" />
 					</Column>		
 					<Column hAlign="Center"
-						width="7rem">
+						width="7rem" >
 						<Text text="배송일자" />
 					</Column>		
 					<Column hAlign="Center"
-						width="7rem">
+						width="7rem" >
 						<Text text="센터지역" />
 					</Column>	
 					<Column hAlign="Center"
-						width="12rem">
+						width="12rem" >
 						<Text text="고객주소" />
 					</Column>	
 
