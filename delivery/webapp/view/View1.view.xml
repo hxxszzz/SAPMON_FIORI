@@ -70,7 +70,7 @@
             <Button
                type="Success"
                text = "포인트 조회" 
-               press="onCancle"/>
+               press="onPoint"/>
             <Button
                type="Negative"
                text = "주문취소" 
